@@ -204,6 +204,8 @@ h3 {
     font-size: 1.5rem;
     text-align: center;
     font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
 }
 .project-image {
     width: 100%;
@@ -226,6 +228,20 @@ h3 {
     margin-right: 15px;
     color: #00ff99;
     text-decoration: none;
+}
+.project-time {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+    color: #ccc;
+    margin: 2px 0 4px 0;
+    line-height: 1.2;
+}
+.project-time .clock-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
 }
 
 /* Tools */
