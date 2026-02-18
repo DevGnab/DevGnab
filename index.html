@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,9 +7,9 @@
     <link rel="stylesheet" href="styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
+    <!-- =================== HERO =================== -->
     <header class="hero">
         <video id="hero-video" class="hero-bg" autoplay muted playsinline></video>
         <div class="hero-overlay"></div>
@@ -36,9 +35,9 @@
             <p class="hero-subtitle">Game Developer | Game Programmer</p>
             <a href="#projects" class="btn">View My Works</a>
         </div>
-
     </header>
 
+    <!-- =================== ABOUT =================== -->
     <section id="about">
         <h2>About Me</h2>
         <p>
@@ -47,18 +46,58 @@
         </p>
     </section>
 
+    <!-- =================== SKILLS =================== -->
     <section id="skills">
-        <h2>Technical Skills</h2>
-        <div class="skills-grid">
-            <div>Unity</div>
-            <div>Unreal Engine</div>
-            <div>C#</div>
-            <div>C++</div>
-            <div>Shader Programming</div>
-            <div>AI Behaviour Systems</div>
+        <div class="skills-header">
+            <button class="arrow left" id="prevSkill">&#10094;</button>
+            <h2>Technical Skills</h2>
+            <button class="arrow right" id="nextSkill">&#10095;</button>
+        </div>
+
+        <div class="skills-carousel">
+            <div class="skills-track">
+
+                <!-- Skill Cards -->
+                <div class="skill-card" data-description="I have been working with Unity since 2017 and is well versed in the game engine." data-projects="0,1">
+                    <div class="skill-icon">
+                        <img src="assets/images/unity-icon.png" alt="Unity">
+                    </div>
+                    <span>Unity</span>
+                </div>
+
+                <div class="skill-card" data-description="My primary and favorite programming language, i have been ussing it since 2016" data-projects="0,1">
+                    <div class="skill-icon">
+                        <img src="assets/images/csharp-icon.png" alt="C#">
+                    </div>
+                    <span>C#</span>
+                </div>
+
+                <div class="skill-card" data-description="I have been doing shaders since 2020, mostly using Unity's shader graph system." data-projects="0">
+                    <div class="skill-icon">
+                        <img src="assets/images/shader-icon.png" alt="C#">
+                    </div>
+                    <span>Shader Programming</span>
+                </div>
+
+                <div class="skill-card" data-description="I have worked with AI-BehaviourTree's and state machines since 2019 and is comfortable with creating and adding to them." data-projects="0">
+                    <div class="skill-icon">
+                        <img src="assets/images/behaviourtree-icon.png" alt="C#">
+                    </div>
+                    <span>AI Systems</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Skill Details Panel -->
+        <div id="skill-details" class="skill-details">
+            <div class="skill-details-inner">
+                <p id="skill-description"></p>
+                <div id="skill-project-links"></div>
+            </div>
         </div>
     </section>
 
+    <!-- =================== PROJECTS =================== -->
     <section id="projects">
         <div class="projects-header">
             <button class="arrow left" id="prevProject">&#10094;</button>
@@ -67,12 +106,13 @@
         </div>
 
         <div class="projects-carousel">
+            
+            <!-- Project Card 0 -->
             <div class="project-card active">
                 <div class="project-left">
                     <h3 class="project-name" data-font="Varmr-font">Varmr</h3>
                     <img src="assets/images/varmr-thumbnail.jpg" alt="Varmr Thumbnail" class="project-image">
 
-                    <!-- Tools/Engines used -->
                     <div class="project-tools">
                         <div class="tool">
                             <img src="assets/images/unity-icon.png" alt="Unity">
@@ -89,12 +129,9 @@
                     </div>
                 </div>
                 <div class="project-right">
-                    <!-- Video preview -->
                     <video class="project-video" data-video="assets/videos/game1.mp4" autoplay muted loop playsinline></video>
-
                     <p>This was our second group project during my time at FutureGame-Malmö, We where a team of 12 within a 4-week period.
                         I was responsible for most of the programming, as well as creating all visual effects and shaders. Additionally, I contributed to game design and implemented the UI, sound, and narrative systems, ensuring a cohesive and polished experience</p>
-
                     <div class="project-links">
                         <a href="https://github.com/DevGnab/GP2-G3-2026-DaggerBlade" target="_blank" rel="noopener noreferrer">GitHub</a>
                         <a href="#">Playable Demo</a>
@@ -102,12 +139,12 @@
                 </div>
             </div>
 
+            <!-- Project Card 1 -->
             <div class="project-card">
                 <div class="project-left">
                     <h3 class="project-name" data-font="">Snow Runner</h3>
                     <img src="assets/images/SnowRunner-thumbnail.png" alt="SnowRunner Thumbnail" class="project-image">
 
-                    <!-- Tools/Engines used -->
                     <div class="project-tools">
                         <div class="tool">
                             <img src="assets/images/unity-icon.png" alt="Unity">
@@ -124,29 +161,32 @@
                     </div>
                 </div>
                 <div class="project-right">
-                    <!-- Video preview -->
                     <video class="project-video" data-video="assets/videos/game2.mp4" autoplay muted loop playsinline></video>
-
                     <p>This was our first group project during my time at FutureGame-Malmö.
                         I created the player controller and made a custom editor for my team to use,
-                        saddly i was only able to participate the first of 3 weeks of the project and there for did not managage to get as much done as i would have liked. Still i was able to do most of the code and my team could handle the polish in the last 2 weeks.</p>
-
+                        sadly I was only able to participate the first of 3 weeks of the project and therefore did not manage to get as much done as I would have liked. Still I was able to do most of the code and my team could handle the polish in the last 2 weeks.</p>
                     <div class="project-links">
-                        <a href="https://uzerox.itch.io/snow-runner">Playable Demo</a>
+                        <a href="https://uzerox.itch.io/snow-runner" target="_blank">Playable Demo</a>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
+
+    <!-- =================== CONTACT =================== -->
     <section id="contact">
         <h2>Contact</h2>
-        <p>Email: <a>JonatanBang01@gmail.com</a></p>
+        <p>Email: <a href="mailto:JonatanBang01@gmail.com">JonatanBang01@gmail.com</a></p>
         <p>GitHub: <a href="https://github.com/DevGnab" target="_blank">github.com/GnabDev</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/jonatan-bang-568465223" target="_blank">linkedin.com/in/jonatan-bang-568465223</a></p>
     </section>
 
+    <!-- =================== FOOTER =================== -->
     <footer>
         <p>© 2026 Jonatan Bang</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
+</html>
