@@ -5,9 +5,11 @@ I'm Jonatan Bang, a Game programmer based in Sweden - Malmö
 I do all programming related thing's within game development.
 
 Tool's & Tech -
+
 [Game Eniges]
 * Unity
 * Unreal
+
 [Languages]
 * C#
 * C++
