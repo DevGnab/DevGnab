@@ -1,16 +1,19 @@
-## Hi there 👋
+Hello World! 
 
-<!--
-**DevGnab/DevGnab** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I'm Jonatan Bang, a Game programmer based in Sweden - Malmö
 
-Here are some ideas to get you started:
+I do all programming related thing's within game development.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Tool's & Tech -
+[Game Eniges]
+* Unity
+* Unreal
+[Languages]
+* C#
+* C++
+
+A bit about me -
+* I have been coding since i was 15.
+* I enjoy video games both creating and playing.
+* I love bouldering.
+* I have OCD so i love clean and structured code.
