@@ -1,21 +1,23 @@
-Hello World! 
+# Hello World! 👋
 
-I'm Jonatan Bang, a Game programmer based in Sweden - Malmö
+I'm **Jonatan Bang**, a Game Programmer based in Malmö, Sweden 🇸🇪  
+I work with all things programming within game development.
 
-I do all programming related thing's within game development.
+---
 
-Tool's & Tech -
+### 🎮 Game Engines
+- Unity
+- Unreal Engine
 
-[Game Eniges]
-* Unity
-* Unreal
+### 💻 Languages
+- C#
+- C++
 
-[Languages]
-* C#
-* C++
+---
 
-A bit about me -
-* I have been coding since i was 15.
-* I enjoy video games both creating and playing.
-* I love bouldering.
-* I have OCD so i love clean and structured code.
+## 👨‍💻 A Bit About Me
+
+- I’ve been coding since I was 15.
+- I enjoy video games — both creating and playing them.
+- I love bouldering.
+- I have OCD, so I appreciate clean and structured code.
