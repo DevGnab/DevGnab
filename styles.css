@@ -246,6 +246,45 @@ footer {
     border-radius: 50%;
     border: 2px solid #00ff99;
 }
+.projects-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.arrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    transition: 0.2s ease;
+}
+
+.arrow:hover {
+    transform: scale(1.2);
+    color: #00ffcc;
+}
+
+.projects-carousel {
+    position: relative;
+    width: 100%;
+}
+
+.project-card {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.project-card.active {
+    display: flex; /* or block depending on your layout */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
 /* section adjustments for small screens */
 @media (max-width: 768px) {

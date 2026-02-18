@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ---------------- Hero Video ----------------
     var videoFiles = [
         "assets/videos/game1.mp4",
+        "assets/videos/game2.mp4",
     ];
 
     var video = document.getElementById("hero-video");
@@ -78,5 +79,33 @@ document.addEventListener("DOMContentLoaded", function () {
         const font = title.dataset.font;
         if (font) title.style.fontFamily = font;
     });
+
+    const projects = document.querySelectorAll(".project-card");
+    const nextBtn = document.getElementById("nextProject");
+    const prevBtn = document.getElementById("prevProject");
+
+    let currentIndex = 0;
+
+    function showProject(index) {
+        projects.forEach(project => project.classList.remove("active"));
+        projects[index].classList.add("active");
+    }
+
+    nextBtn.addEventListener("click", () => {
+        currentIndex++;
+        if (currentIndex >= projects.length) {
+            currentIndex = 0;
+        }
+        showProject(currentIndex);
+    });
+
+    prevBtn.addEventListener("click", () => {
+        currentIndex--;
+        if (currentIndex < 0) {
+            currentIndex = projects.length - 1;
+        }
+        showProject(currentIndex);
+    });
+
 
 });
