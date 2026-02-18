@@ -3,9 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: #0f0f0f;
@@ -17,13 +19,16 @@ section {
     padding: 80px 10%;
 }
 
-h1, h2 {
+h1,
+h2 {
     margin-bottom: 20px;
 }
+
 h3 {
     margin-bottom: 20px;
     font-size: 4rem;
 }
+
 .hero h1 {
     font-size: 3rem;
     font-weight: 800;
@@ -108,6 +113,7 @@ h3 {
     border-radius: 8px;
     background: #000;
 }
+
 .project-links a {
     margin-right: 15px;
     color: #00ff99;
@@ -120,6 +126,7 @@ footer {
     background: #111;
     color: #777;
 }
+
 .hero {
     position: relative;
     height: 100vh;
@@ -158,13 +165,54 @@ footer {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 2;
 }
+
 .hero-name-profile {
     display: flex;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
+}
+
+.hero-name-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.hero-name-links h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.hero-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.hero-links a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+
+.hero-links a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #00ff99;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-links a img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #00ff99;
 }
 
 .profile-pic {
@@ -187,17 +235,144 @@ footer {
     color: #ccc;
     white-space: nowrap;
 }
+
 @font-face {
     font-family: 'Varmr-font';
     src: url('assets/fonts/celticon-regular.woff2') format('woff2'),
-         url('assets/fonts/celticon-regular.woff') format('woff');
+        url('assets/fonts/celticon-regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'Varmr-font';
     src: url('assets/fonts/celticon-bold.woff2') format('woff2'),
-         url('assets/fonts/celticon-bold.woff') format('woff');
+        url('assets/fonts/celticon-bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
+}
+
+.hero-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-links a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+
+.hero-links a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    /* perfect circle */
+    border: 2px solid #00ff99;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-links a img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #00ff99;
+}
+
+.project-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.project-tools .tool {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background: #111;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.project-tools .tool img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #00ff99;
+}
+
+/* section adjustments for small screens */
+@media (max-width: 768px) {
+    .hero-name-profile {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+    .hero-name-links h1 {
+        font-size: 2.5rem;
+    }
+    .hero-links a {
+        width: 40px;
+        height: 40px;
+    }
+    .hero-name-profile h1 {
+        font-size: 2.5rem;
+        white-space: normal;
+        text-align: center;
+    }
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+        white-space: normal;
+    }
+    .hero-links {
+        gap: 10px;
+    }
+    .hero-links a img {
+        width: 40px;
+        height: 40px;
+    }
+    .project-card {
+        flex-direction: column;
+        padding: 15px;
+    }
+    .project-left {
+        flex: 1 1 auto;
+        width: 100%;
+        align-items: center;
+    }
+    .project-right {
+        width: 100%;
+    }
+    .project-video {
+        max-height: 200px;
+    }
+    .project-tools .tool img {
+        width: 35px;
+        height: 35px;
+    }
+    .project-tools .tool {
+        font-size: 0.75rem;
+        padding: 6px 8px;
+    }
+        .hero-name-links h1 {
+        font-size: 2.5rem;
+    }
+    .hero-name-links {
+        gap: 4px;
+    }
 }
