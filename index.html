@@ -12,15 +12,25 @@
 <body>
 
     <header class="hero">
-        <h1>Jonatan Bang</h1>
-        <p>Game Developer | Game Programmer</p>
-        <a href="#projects" class="btn">View My Work</a>
+        <video id="hero-video" class="hero-bg" autoplay muted playsinline></video>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-name-profile">
+                <img src="assets/images/profile.jpg" alt="Profile Picture" class="profile-pic">
+                <h1>Jonatan Bang</h1>
+            </div>
+
+            <p class="hero-subtitle">Game Developer | Gameplay Programmer</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+
     </header>
 
     <section id="about">
         <h2>About Me</h2>
         <p>
-            I'm a versatile game developer who thrives in indie environments, combining solid engineering skills with practical game design instincts. 
+            I'm a versatile game developer who thrives in indie environments, combining solid engineering skills with practical game design instincts.
             I design, build, optimize, and polish gameplay systems end-to-end to create tight, engaging experiences.
         </p>
     </section>
@@ -41,24 +51,36 @@
         <h2>Projects</h2>
 
         <div class="project-card">
-            <h3>Project Name</h3>
-            <p>Short description of the project. What you built, your role, and tech used.</p>
-            <div class="project-links">
-                <a href="#">GitHub</a>
-                <a href="#">Playable Demo</a>
+            <div class="project-left">
+                <h3 class="project-name" data-font="Varmr-font">Varmr</h3>
+                <img src="assets/images/varmr-thumbnail.jpg" alt="Varmr Thumbnail" class="project-image">
+            </div>
+
+            <div class="project-right">
+                <!-- Video preview -->
+                <video class="project-video" data-video="assets/videos/game1.mp4" autoplay muted loop playsinline></video>
+
+                <p>This was a group project during my time at FutureGame-Malmö. I was responsible for most of the programming, as well as creating all visual effects and shaders. Additionally, I contributed to game design and implemented the UI, sound, and narrative systems, ensuring a cohesive and polished experience</p>
+
+                <div class="project-links">
+                    <a href="https://github.com/DevGnab/GP2-G3-2026-DaggerBlade" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="#">Playable Demo</a>
+                </div>
             </div>
         </div>
-
         <!-- Duplicate project-card for more projects -->
 
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>Email: JonatanBang01@gmail.com</p>
-        <p>GitHub: github.com/GnabDev</p>
-        <p>LinkedIn: linkedin.com/in/jonatan-bang-568465223</p>
+        <p>Email: <a href="mailto:JonatanBang01@gmail.com">JonatanBang01@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/DevGnab" target="_blank">github.com/GnabDev</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/jonatan-bang-568465223" target="_blank">linkedin.com/in/jonatan-bang-568465223</a></p>
     </section>
 
     <footer>
         <p>© 2026 Jonatan Bang</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
