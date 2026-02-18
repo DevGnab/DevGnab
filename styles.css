@@ -409,6 +409,10 @@ footer {
 }
 @media (max-width: 768px) {
 
+    .skill-card {
+        min-width: 100%;
+    }
+
     .hero-name-profile {
         flex-direction: column;
         gap: 10px;

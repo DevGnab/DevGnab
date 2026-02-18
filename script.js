@@ -128,7 +128,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const skillsThumbnails = document.getElementById("skills-thumbnails");
 
     let skillIndex = 0;
-    const visibleSkills = 4;
+    let visibleSkills = 4;
+
+    function updateVisibleSkills() {
+        const width = window.innerWidth;
+        if (width <= 500) {
+            visibleSkills = 1;
+        } else if (width <= 900) {
+            visibleSkills = 2;
+        } else {
+            visibleSkills = 4;
+        }
+    }
+
+    window.addEventListener("resize", () => {
+        updateVisibleSkills();
+        updateSkillsCarousel();
+    });
 
     function updateSkillsCarousel() {
         if (!skillsTrack || skillCards.length === 0) return;
@@ -219,6 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Initialize
+    updateVisibleSkills();
     populateSkillThumbnails();
     updateSkillsCarousel();
     activateSkillCard(0);
