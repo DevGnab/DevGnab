@@ -61,28 +61,28 @@
                 <div class="skills-track">
 
                     <!-- Skill Cards -->
-                    <div class="skill-card" data-description="I have been developing games with Unity since 2017, gaining extensive experience with its core systems, editor workflows, and tools. I am comfortable navigating complex projects, optimizing performance, and implementing both 2D and 3D gameplay systems." data-projects="0,1">
+                    <div class="skill-card" data-description="I have been developing games with Unity since 2017, gaining extensive experience with its core systems, editor workflows, and tools. I am comfortable navigating complex projects, optimizing performance, and implementing both 2D and 3D gameplay systems." data-projects="0,1" data-systems="0">
                         <div class="skill-icon">
                             <img src="assets/images/unity-icon.png" alt="Unity">
                         </div>
                         <span>Unity</span>
                     </div>
 
-                    <div class="skill-card" data-description="C# is my primary programming language, which I have been using since 2016. I have applied it to create gameplay mechanics, tools, and systems, and I am confident in writing clean, maintainable, and efficient code for a variety of game development scenarios." data-projects="0,1">
+                    <div class="skill-card" data-description="C# is my primary programming language, which I have been using since 2016. I have applied it to create gameplay mechanics, tools, and systems, and I am confident in writing clean, maintainable, and efficient code for a variety of game development scenarios." data-projects="0,1" data-systems="0">
                         <div class="skill-icon">
                             <img src="assets/images/csharp-icon.png" alt="C#">
                         </div>
                         <span>C#</span>
                     </div>
 
-                    <div class="skill-card" data-description="I have been working with shaders since 2020, mainly using Unity’s Shader Graph to produce custom visual effects. I am experienced in creating both stylized and realistic shaders, optimizing them for performance, and integrating them seamlessly into gameplay environments." data-projects="0">
+                    <div class="skill-card" data-description="I have been working with shaders since 2020, mainly using Unity’s Shader Graph to produce custom visual effects. I am experienced in creating both stylized and realistic shaders, optimizing them for performance, and integrating them seamlessly into gameplay environments." data-projects="0" data-systems="">
                         <div class="skill-icon">
                             <img src="assets/images/shader-icon.png" alt="Shader Programming">
                         </div>
                         <span>Shader Programming</span>
                     </div>
 
-                    <div class="skill-card" data-description="Since 2019, I have worked with AI behavior trees and state machines, designing and implementing dynamic systems for intelligent NPC behavior. I am comfortable both creating new AI systems and extending existing ones, ensuring responsive and engaging gameplay experiences." data-projects="0">
+                    <div class="skill-card" data-description="Since 2019, I have worked with AI behavior trees and state machines, designing and implementing dynamic systems for intelligent NPC behavior. I am comfortable both creating new AI systems and extending existing ones, ensuring responsive and engaging gameplay experiences." data-projects="0" data-systems="">
                         <div class="skill-icon">
                             <img src="assets/images/behaviourtree-icon.png" alt="AI Systems">
                         </div>
@@ -101,6 +101,7 @@
             <div class="skill-details-inner">
                 <p id="skill-description"></p>
                 <div id="skill-project-links"></div>
+                <div id="skill-system-links"></div>
             </div>
         </div>
     </section>
@@ -143,7 +144,7 @@
                         </div>
                     </div>
                     <div class="project-right">
-                        <video class="project-video" data-video="assets/videos/game1.mp4" autoplay muted loop playsinline></video>
+                        <video class="project-video" data-video="assets/videos/Projects/game1.mp4" autoplay muted loop playsinline></video>
                         <p>This was our second group project during my time at FutureGame-Malmö. We were a team of 12,
                             I was responsible for most of the programming, as well as creating all visual effects and shaders. Additionally, I contributed to game design and implemented the UI, sound, and narrative systems, ensuring a cohesive and polished experience.</p>
                         <div class="project-links">
@@ -178,7 +179,7 @@
                         </div>
                     </div>
                     <div class="project-right">
-                        <video class="project-video" data-video="assets/videos/game2.mp4" autoplay muted loop playsinline></video>
+                        <video class="project-video" data-video="assets/videos/Projects/game2.mp4" autoplay muted loop playsinline></video>
                         <p>This was our first group project during my time at FutureGame-Malmö.
                             I created the player controller and made a custom editor for my team to use,
                             sadly I was only able to participate the first of 3 weeks of the project and therefore did not manage to get as much done as I would have liked. Still I was able to do most of the code and my team could handle the polish in the last 2 weeks.</p>
@@ -193,6 +194,43 @@
 
         <!-- Projects Thumbnails -->
         <div class="carousel-thumbnails" id="projects-thumbnails"></div>
+    </section>
+
+    <!-- =================== SYSTEMS =================== -->
+    <section id="systems">
+        <div class="systems-header">
+            <button class="arrow left" id="prevSystem">&#10094;</button>
+            <h2>Systems</h2>
+            <button class="arrow right" id="nextSystem">&#10095;</button>
+        </div>
+
+        <div class="systems-carousel-wrapper">
+            <div class="systems-carousel">
+
+                <div class="system-card active">
+                    <div class="system-left">
+                        <h3 class="system-name">Inventory System</h3>
+                        <img src="assets/images/Intentory-Thumbnail.png" alt="Inventory Thumbnail" class="system-image">
+                        <div class="system-tools">
+                            <div class="tool">
+                                <img src="assets/images/unity-icon.png" alt="Unity">
+                                <span>Unity</span>
+                            </div>
+                            <div class="tool">
+                                <img src="assets/images/csharp-icon.png" alt="C#">
+                                <span>C#</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="system-right">
+                        <video class="project-video" data-video="assets/videos/Systems/inventory.mp4" autoplay muted loop playsinline></video>
+                        <p>I developed a robust RPG-style inventory system for a prototype project, featuring support for multiple storage systems and seamless item transfer between them. Ussing Unity’s ScriptableObjects to streamline the creation of new item types, minimizing development time and enabling rapid iteration.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="carousel-thumbnails" id="systems-thumbnails"></div>
     </section>
 
     <!-- =================== CONTACT =================== -->

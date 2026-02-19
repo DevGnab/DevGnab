@@ -269,6 +269,143 @@ h3 {
     border: 2px solid #00ff99;
 }
 
+/* SYSTEMS CAROUSEL */
+.systems-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.systems-header h2 {
+    margin: 0;
+}
+.systems-header .arrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    transition: 0.2s ease;
+}
+.systems-header .arrow:hover {
+    transform: scale(1.2);
+    color: #00ffcc;
+}
+.system-card {
+    display: none;
+    gap: 20px;
+    background: #1a1a1a;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    align-items: flex-start;
+    animation: fadeIn 0.4s ease;
+    flex-direction: row;
+}
+.system-card.active {
+    display: flex;
+}
+
+.system-left {
+    flex: 0 0 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.system-left h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.system-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.system-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.system-tools .tool {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background: #111;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+}
+
+.system-tools .tool img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #00ff99;
+}
+
+.system-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.system-video {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #000;
+}
+
+/* system thumbnails */
+#systems-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    overflow-x: auto;
+    padding: 5px 0;
+}
+
+#systems-thumbnails img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+#systems-thumbnails img.active {
+    opacity: 1;
+    border-color: #ff6b6b;
+    transform: scale(1.1);
+}
+
+/* Arrows */
+#nextSystem, #prevSystem {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    transition: 0.2s ease;
+}
+#nextSystem:hover, #prevSystem:hover {
+    transform: scale(1.2);
+    color: #00ff99;
+}
+
 /* ===================================================== */
 /* SKILLS SECTION */
 /* ===================================================== */
@@ -288,7 +425,7 @@ h3 {
 /* Carousel */
 
 .skills-carousel {
-    overflow: visible;
+    overflow: hidden;
     width: 100%;
     margin-top: 30px;
 }
@@ -400,6 +537,22 @@ h3 {
     background: #00cc77;
     transform: scale(1.05);
 }
+#skill-system-links button {
+    margin-right: 10px;
+    margin-top: 15px;
+    padding: 10px 18px;
+    background: #00ff99;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+#skill-system-links button:hover {
+    background: #00cc77;
+    transform: scale(1.05);
+}
 
 /* ===================================================== */
 /* FOOTER */
@@ -489,6 +642,17 @@ footer {
     .project-tools .tool {
         font-size: 0.75rem;
         padding: 6px 8px;
+    }
+    .system-card {
+        flex-direction: column;
+        padding: 15px;
+    }
+    .system-video {
+        max-height: 200px;
+    }
+    .system-left {
+        flex: none;
+        width: 100%;
     }
 }
 

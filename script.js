@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // HERO BACKGROUND VIDEO
     // =====================================================
     const videoFiles = [
-        "assets/videos/game1.mp4",
-        "assets/videos/game2.mp4",
+        "assets/videos/Projects/game1.mp4",
+        "assets/videos/Projects/game2.mp4",
     ];
     const heroVideo = document.getElementById("hero-video");
 
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (heroVideo) playRandomSnippet();
 
     // =====================================================
-    // PROJECT CARD VIDEO SNIPPETS
+    // PROJECT / SYSTEM CARD VIDEO SNIPPETS
     // =====================================================
     const projectVideos = document.querySelectorAll(".project-video");
     projectVideos.forEach(video => {
@@ -83,7 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!projectsThumbnails) return;
         projectsThumbnails.innerHTML = "";
         projects.forEach((proj, index) => {
-            const thumbImg = proj.querySelector(".project-image").cloneNode(true);
+            const thumbImg = proj.querySelector(".project-image")?.cloneNode(true);
+            if (!thumbImg) return;
             if (index === 0) thumbImg.classList.add("active");
             thumbImg.addEventListener("click", () => {
                 currentProjectIndex = index;
@@ -116,12 +117,66 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // =====================================================
-    // SKILL CAROUSEL + THUMBNAILS
+    // SYSTEMS CAROUSEL + THUMBNAILS
+    // =====================================================
+    const systems = document.querySelectorAll(".system-card");
+    const nextSystemBtn = document.getElementById("nextSystem");
+    const prevSystemBtn = document.getElementById("prevSystem");
+    const systemsThumbnails = document.getElementById("systems-thumbnails");
+
+    let currentSystemIndex = 0;
+
+    function showSystem(index) {
+        systems.forEach(s => s.classList.remove("active"));
+        if (!systems[index]) return;
+        systems[index].classList.add("active");
+        updateSystemThumbnails();
+    }
+
+    function populateSystemThumbnails() {
+        if (!systemsThumbnails) return;
+        systemsThumbnails.innerHTML = "";
+        systems.forEach((sys, index) => {
+            const thumbImg = sys.querySelector(".system-image")?.cloneNode(true);
+            if (!thumbImg) return;
+            if (index === 0) thumbImg.classList.add("active");
+            thumbImg.addEventListener("click", () => {
+                currentSystemIndex = index;
+                showSystem(currentSystemIndex);
+            });
+            systemsThumbnails.appendChild(thumbImg);
+        });
+    }
+
+    function updateSystemThumbnails() {
+        if (!systemsThumbnails) return;
+        systemsThumbnails.querySelectorAll("img").forEach((img, idx) => {
+            img.classList.toggle("active", idx === currentSystemIndex);
+        });
+    }
+
+    populateSystemThumbnails();
+    showSystem(0);
+
+    if (nextSystemBtn && prevSystemBtn) {
+        nextSystemBtn.addEventListener("click", () => {
+            currentSystemIndex = (currentSystemIndex + 1) % systems.length;
+            showSystem(currentSystemIndex);
+        });
+        prevSystemBtn.addEventListener("click", () => {
+            currentSystemIndex = (currentSystemIndex - 1 + systems.length) % systems.length;
+            showSystem(currentSystemIndex);
+        });
+    }
+
+    // =====================================================
+    // SKILLS CAROUSEL + THUMBNAILS
     // =====================================================
     const skillCards = document.querySelectorAll(".skill-card");
     const skillDetails = document.getElementById("skill-details");
     const skillDescription = document.getElementById("skill-description");
     const skillProjectLinks = document.getElementById("skill-project-links");
+    const skillSystemLinks = document.getElementById("skill-system-links");
     const skillsTrack = document.querySelector(".skills-track");
     const prevSkillBtn = document.getElementById("prevSkill");
     const nextSkillBtn = document.getElementById("nextSkill");
@@ -132,13 +187,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateVisibleSkills() {
         const width = window.innerWidth;
-        if (width <= 500) {
-            visibleSkills = 1;
-        } else if (width <= 900) {
-            visibleSkills = 2;
-        } else {
-            visibleSkills = 4;
-        }
+        if (width <= 500) visibleSkills = 1;
+        else if (width <= 900) visibleSkills = 2;
+        else visibleSkills = 4;
     }
 
     window.addEventListener("resize", () => {
@@ -148,30 +199,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateSkillsCarousel() {
         if (!skillsTrack || skillCards.length === 0) return;
-
         const cardWidth = skillCards[0].offsetWidth + 20;
-        let offsetIndex = skillIndex;
-
-        // Scroll
-        if (skillIndex >= visibleSkills) {
-            offsetIndex = skillIndex - (visibleSkills - 1);
-        } else {
-            offsetIndex = 0;
-        }
-
-        skillsTrack.style.transform = `translateX(-${offsetIndex * cardWidth}px)`;
+        const containerWidth = skillsTrack.parentElement.offsetWidth;
+        const visibleCount = Math.round(containerWidth / cardWidth);
+        let offsetIndex = 0;
+        if (skillIndex > visibleCount - 1) offsetIndex = skillIndex - (visibleCount - 1);
+        const maxOffset = skillCards.length - visibleCount;
+        offsetIndex = Math.min(offsetIndex, maxOffset);
+        skillsTrack.style.transform = `translateX(-${offsetIndex * cardWidth}px)`;     //`
         updateSkillThumbnails();
     }
 
     function populateSkillThumbnails() {
         if (!skillsThumbnails) return;
         skillsThumbnails.innerHTML = "";
-
         skillCards.forEach((skill, index) => {
             let thumbImg = skill.querySelector(".skill-icon img")?.cloneNode(true);
             if (!thumbImg) {
                 thumbImg = document.createElement("div");
-                thumbImg.textContent = skill.querySelector("span").textContent[0];
+                thumbImg.textContent = skill.querySelector("span")?.textContent?.[0] || "?";
                 thumbImg.style.width = "50px";
                 thumbImg.style.height = "50px";
                 thumbImg.style.display = "flex";
@@ -199,107 +245,90 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    function createSkillLinkButton(type, index) {
+        const button = document.createElement("button");
+        if (type === "project") {
+            button.textContent = projects[index]?.querySelector(".project-name")?.textContent || "Project";
+            button.classList.add("project-link");
+            button.addEventListener("click", () => {
+                currentProjectIndex = index;
+                filteredProjects = [...projects];
+                showProject(currentProjectIndex);
+                document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+            });
+        } else if (type === "system") {
+            button.textContent = systems[index]?.querySelector(".system-name")?.textContent || "System";
+            button.classList.add("project-link");
+            button.addEventListener("click", () => {
+                currentSystemIndex = index;
+                showSystem(currentSystemIndex);
+                document.getElementById("systems").scrollIntoView({ behavior: "smooth" });
+            });
+        }
+        return button;
+    }
+
     function activateSkillCard(index) {
-        skillCards.forEach(s => s.classList.remove("active"));
         const skill = skillCards[index];
+        if (!skill) return;
+        skillCards.forEach(s => s.classList.remove("active"));
         skill.classList.add("active");
-        skillDescription.textContent = skill.dataset.description;
+
+        skillDescription.textContent = skill.dataset.description || "";
+
+        // Projects
         skillProjectLinks.innerHTML = "";
-
-        const relatedProjects = skill.dataset.projects
-            .split(",")
-            .filter(p => p !== "")
-            .map(p => parseInt(p));
-
+        const relatedProjects = skill.dataset.projects?.split(",").filter(p => p !== "").map(p => parseInt(p)) || [];
         if (relatedProjects.length === 0) {
             const noProjects = document.createElement("p");
             noProjects.textContent = "No related projects yet.";
             skillProjectLinks.appendChild(noProjects);
         } else {
             relatedProjects.forEach(projectIndex => {
-                const button = document.createElement("button");
-                button.textContent = projects[projectIndex]
-                    .querySelector(".project-name").textContent;
-                button.addEventListener("click", () => {
-                    currentProjectIndex = projectIndex;
-                    filteredProjects = [...projects];
-                    showProject(currentProjectIndex);
-                    document.getElementById("projects").scrollIntoView({
-                        behavior: "smooth"
-                    });
-                });
-                skillProjectLinks.appendChild(button);
+                skillProjectLinks.appendChild(createSkillLinkButton("project", projectIndex));
             });
         }
+
+        // Systems
+        skillSystemLinks.innerHTML = "";
+        const relatedSystems = skill.dataset.systems?.split(",").filter(s => s !== "").map(s => parseInt(s)) || [];
+        if (relatedSystems.length === 0) {
+            const noSystems = document.createElement("p");
+            noSystems.textContent = "No related systems yet.";
+            skillSystemLinks.appendChild(noSystems);
+        } else {
+            relatedSystems.forEach(systemIndex => {
+                skillSystemLinks.appendChild(createSkillLinkButton("system", systemIndex));
+            });
+        }
+
         skillDetails.classList.add("open");
     }
 
-    // Initialize
+    // Initialize skills
     updateVisibleSkills();
     populateSkillThumbnails();
     updateSkillsCarousel();
     activateSkillCard(0);
 
-    // Carousel arrows
     if (nextSkillBtn && prevSkillBtn) {
         nextSkillBtn.addEventListener("click", () => {
             skillIndex = (skillIndex + 1) % skillCards.length;
-            updateSkillsCarousel();
             activateSkillCard(skillIndex);
+            requestAnimationFrame(updateSkillsCarousel);
         });
         prevSkillBtn.addEventListener("click", () => {
             skillIndex = (skillIndex - 1 + skillCards.length) % skillCards.length;
-            updateSkillsCarousel();
             activateSkillCard(skillIndex);
+            requestAnimationFrame(updateSkillsCarousel);
         });
     }
 
-    // Click on cards
     skillCards.forEach((skill, index) => {
         skill.addEventListener("click", () => {
             skillIndex = index;
             updateSkillsCarousel();
             activateSkillCard(index);
-        });
-    });
-
-    // =====================================================
-    // SKILL DETAILS CLICK
-    // =====================================================
-    skillCards.forEach(skill => {
-        skill.addEventListener("click", () => {
-            skillCards.forEach(s => s.classList.remove("active"));
-            skill.classList.add("active");
-
-            skillDescription.textContent = skill.dataset.description;
-            skillProjectLinks.innerHTML = "";
-
-            const relatedProjects = skill.dataset.projects
-                .split(",")
-                .filter(p => p !== "")
-                .map(p => parseInt(p));
-
-            if (relatedProjects.length === 0) {
-                const noProjects = document.createElement("p");
-                noProjects.textContent = "No related projects yet.";
-                skillProjectLinks.appendChild(noProjects);
-            } else {
-                relatedProjects.forEach(projectIndex => {
-                    const button = document.createElement("button");
-                    button.textContent = projects[projectIndex]
-                        .querySelector(".project-name").textContent;
-                    button.addEventListener("click", () => {
-                        currentProjectIndex = projectIndex;
-                        filteredProjects = [...projects];
-                        showProject(currentProjectIndex);
-                        document.getElementById("projects").scrollIntoView({
-                            behavior: "smooth"
-                        });
-                    });
-                    skillProjectLinks.appendChild(button);
-                });
-            }
-            skillDetails.classList.add("open");
         });
     });
 
