@@ -1,7 +1,7 @@
 # Hello World! 👋
 
 I'm **Jonatan Bang**, a Game Programmer based in Malmö, Sweden 🇸🇪  
-I work with all things programming within game development.
+I work with all things programming related within game development.
 
 ---
 
